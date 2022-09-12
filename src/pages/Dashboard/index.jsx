@@ -44,7 +44,7 @@ const Dashboard = () => {
               Bonjour{' '}
               <span className='dashboardHeader__username'>
                 {' '}
-                {datas.userDatas.userInfos.firstName}
+                {datas.userDatas.userFirstname}
               </span>
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
