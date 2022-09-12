@@ -1,0 +1,22 @@
+.dashboard {
+  margin: 50px 90px 0 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboardHeader {
+  margin-bottom: 68px;
+}
+.dashboardHeader h1 {
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.dashboardHeader__username {
+  color: #ff0101;
+}
+.dashboardHeader p {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 24px;
+}
