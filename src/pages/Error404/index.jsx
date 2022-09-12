@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './error404.css';
 
-/** Création page erreur 404
+/** Creation of 404 error page with link to homepage
+ *  *
  * @return {JSX.Element}
+ * @component
+ * @returns {JSX.Element} Error page
  */
 
 const Error404 = () => {

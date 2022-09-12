@@ -1,0 +1,42 @@
+{
+  "data": {
+    "userId": 27,
+    "sessions": [
+      {
+        "day": "2020-07-01",
+        "kilogram": 75,
+        "calories": 150
+      },
+      {
+        "day": "2020-07-02",
+        "kilogram": 73,
+        "calories": 220
+      },
+      {
+        "day": "2020-07-03",
+        "kilogram": 72,
+        "calories": 280
+      },
+      {
+        "day": "2020-07-04",
+        "kilogram": 72,
+        "calories": 290
+      },
+      {
+        "day": "2020-07-05",
+        "kilogram": 71,
+        "calories": 160
+      },
+      {
+        "day": "2020-07-06",
+        "kilogram": 71,
+        "calories": 162
+      },
+      {
+        "day": "2020-07-07",
+        "kilogram": 70,
+        "calories": 390
+      }
+    ]
+  }
+}

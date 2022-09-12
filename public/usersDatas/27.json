@@ -1,0 +1,17 @@
+{
+  "data": {
+    "id": 27,
+    "userInfos": {
+      "firstName": "Justine",
+      "lastName": "McCrum",
+      "age": 27
+    },
+    "todayScore": 0.12,
+    "keyData": {
+      "calorieCount": 1930,
+      "proteinCount": 155,
+      "carbohydrateCount": 290,
+      "lipidCount": 50
+    }
+  }
+}
