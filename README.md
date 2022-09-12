@@ -42,6 +42,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run docs`
+
+Runs the JSDOC automatic file generation
+Open [http://127.0.0.1:5500/docs/index.html](http://127.0.0.1:5500/docs/index.html) to view it in your browser. Note that the URL could be different,. i'm using the LiveServer extension on port 5500. 
+
+The page will show you all the generated documentation of the project.
+
 ### `yarn start`
 
 Runs the app in the development mode.\
