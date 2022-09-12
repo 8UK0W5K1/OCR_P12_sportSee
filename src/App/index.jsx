@@ -3,6 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home/index';
 import Dashboard from '../pages/Dashboard/index';
 import Error404 from '../pages/Error404/index';
+import './app.css';
+
+/**
+ * Creation of Router in App Component
+ * @returns App component
+ */
 
 const App = () => {
   return (

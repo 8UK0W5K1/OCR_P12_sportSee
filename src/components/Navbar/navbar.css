@@ -1,0 +1,49 @@
+.header {
+  background-color: #020203;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 91px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.compagnyLogo img {
+  height: 58px;
+}
+
+/* ----------------RESPONSIVE-------------- */
+@media screen and (min-width: 993px) and (max-width: 1220px) {
+  .compagnyLogo img {
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .compagnyLogo img {
+    height: 42px;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 768px) {
+  .compagnyLogo img {
+    height: 34px;
+  }
+}
+
+.navbar {
+  font-weight: 500;
+  font-size: 24px;
+  width: 80%;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navbar__li {
+  text-decoration: none;
+  color: white;
+}
