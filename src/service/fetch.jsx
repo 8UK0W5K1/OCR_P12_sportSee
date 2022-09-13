@@ -4,15 +4,14 @@
  * @returns {Promise}
  */
 
-const mockedDatas = false;
-// ajouter useParams pour mocker données 21.json && 27.json !!
+const mockedDatas = true;
 
 export const getMainUserData = async (userId) => {
   let url = `http://localhost:3000/user/${userId}`;
 
   try {
     if (mockedDatas) {
-      url = '/usersDatas/21.json';
+      url = `/usersDatas/${userId}.json`;
     }
     const response = await fetch(url);
     // console.log(response);
