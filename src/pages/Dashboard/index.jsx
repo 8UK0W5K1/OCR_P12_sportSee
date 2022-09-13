@@ -5,6 +5,7 @@ import DashboardNavigation from '../../components/DashboardNavigation';
 import MacronutrientCard from '../../components/MacronutrientCard';
 
 import { headerUserData } from '../../service/providers';
+import { activitiesUserData } from '../../service/providers';
 
 import caloriesIcon from '../../assets/icons/caloriesIcon.png';
 import carbsIcon from '../../assets/icons/carbsIcon.png';
@@ -29,7 +30,8 @@ const Dashboard = () => {
     (async () => {
       try {
         const userDatas = await headerUserData(userId);
-        setDatas({ userDatas });
+        const activitiesUserDatas = await activitiesUserData(userId);
+        setDatas({ userDatas, activitiesUserDatas });
         setIsLoading(false);
       } catch (error) {
         console.log("sorry, there's an error :", error);
@@ -45,44 +47,47 @@ const Dashboard = () => {
         {isLoading ? (
           'Loading...'
         ) : (
-          <div className='dashboardHeader'>
-            <h1>
-              Bonjour{' '}
-              <span className='dashboardHeader__username'>
-                {' '}
-                {datas.userDatas.userFirstname}
-              </span>
-            </h1>
-            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-          </div>
+          <>
+            <div className='dashboardHeader'>
+              <h1>
+                Bonjour{' '}
+                <span className='dashboardHeader__username'>
+                  {' '}
+                  {datas.userDatas.userFirstname}
+                </span>
+              </h1>
+              <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            </div>
+            <div className='dashboardContent'>
+              <div className='macronutrientCards'>
+                <MacronutrientCard
+                  icon={caloriesIcon}
+                  data={datas.userDatas.keyData.calorieCount}
+                  unit='Kcal'
+                  text='Calories'
+                />
+                <MacronutrientCard
+                  icon={proteinIcon}
+                  data={datas.userDatas.keyData.proteinCount}
+                  unit='g'
+                  text='Protéines'
+                />
+                <MacronutrientCard
+                  icon={carbsIcon}
+                  data={datas.userDatas.keyData.lipidCount}
+                  unit='g'
+                  text='Glucides'
+                />
+                <MacronutrientCard
+                  icon={fatIcon}
+                  data={datas.userDatas.keyData.carbohydrateCount}
+                  unit='g'
+                  text='Lipides'
+                />
+              </div>
+            </div>
+          </>
         )}
-      </div>
-      <div className='dashboardContent'></div>
-      <div className='macronutrientCards'>
-        <MacronutrientCard
-          icon={caloriesIcon}
-          // data={}
-          unit='Kcal'
-          text='Calories'
-        />
-        <MacronutrientCard
-          icon={proteinIcon}
-          // data={}
-          unit='g'
-          text='Protéines'
-        />
-        <MacronutrientCard
-          icon={carbsIcon}
-          // data={}
-          unit='g'
-          text='Glucides'
-        />
-        <MacronutrientCard
-          icon={fatIcon}
-          // data={}
-          unit='g'
-          text='Lipides'
-        />
       </div>
     </>
   );

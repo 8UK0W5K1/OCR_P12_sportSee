@@ -5,7 +5,7 @@ import './macronutrientCard.css';
 /** MacronutrientCard creation with icons and its values
  * @component
  * @param {String} image - icons
-//  * @param {Integer} data - value number
+ * @param {Integer} data - value number
  * @param {String} unit - unit
  * @param {String} text - macronutrient text
  * @returns {JSX.Element} cards component
