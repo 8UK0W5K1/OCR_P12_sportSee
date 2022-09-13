@@ -1,0 +1,36 @@
+.macronutrientCard {
+  width: 258px;
+  height: 124px;
+  background-color: #fbfbfb;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.macronutrientCard__icons {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  margin: 32px;
+}
+
+.macronutrientCard__values {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 51px;
+}
+
+.macronutrientCard__unit {
+  color: #282d30;
+  font-size: 20px;
+  font-weight: 700;
+}
+.macronutrientCard__texts p {
+  color: #74798c;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5px;
+}

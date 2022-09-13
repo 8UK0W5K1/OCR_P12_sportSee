@@ -5,7 +5,7 @@ export async function headerUserData(userId) {
   let mainDatas = {};
 
   mainDatas = await getMainUserData(userId);
-  // console.log(mainDatas);
+  console.log(mainDatas);
   // return mainDatas;  sans passage dans le MainDataFormater
 
   const userMainDatas = new MainDatasFormater(mainDatas);

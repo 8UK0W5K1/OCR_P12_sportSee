@@ -2,8 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import DashboardNavigation from '../../components/DashboardNavigation';
+import MacronutrientCard from '../../components/MacronutrientCard';
 
 import { headerUserData } from '../../service/providers';
+
+import caloriesIcon from '../../assets/icons/caloriesIcon.png';
+import carbsIcon from '../../assets/icons/carbsIcon.png';
+import fatIcon from '../../assets/icons/fatIcon.png';
+import proteinIcon from '../../assets/icons/proteinIcon.png';
 
 import './dashboard.css';
 
@@ -50,6 +56,15 @@ const Dashboard = () => {
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
         )}
+      </div>
+      <div className='dashboardContent'></div>
+      <div className='macronutrientCards'>
+        <MacronutrientCard
+          icon={caloriesIcon}
+          // data={}
+          unit='Kcal'
+          text='Calories'
+        />
       </div>
     </>
   );

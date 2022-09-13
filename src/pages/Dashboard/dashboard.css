@@ -20,3 +20,18 @@
   font-weight: 400;
   margin-top: 24px;
 }
+
+.dashboardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 31px;
+}
+
+.macronutrientCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  gap: 39px;
+}
