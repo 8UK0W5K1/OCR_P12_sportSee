@@ -65,6 +65,24 @@ const Dashboard = () => {
           unit='Kcal'
           text='Calories'
         />
+        <MacronutrientCard
+          icon={proteinIcon}
+          // data={}
+          unit='g'
+          text='Protéines'
+        />
+        <MacronutrientCard
+          icon={carbsIcon}
+          // data={}
+          unit='g'
+          text='Glucides'
+        />
+        <MacronutrientCard
+          icon={fatIcon}
+          // data={}
+          unit='g'
+          text='Lipides'
+        />
       </div>
     </>
   );

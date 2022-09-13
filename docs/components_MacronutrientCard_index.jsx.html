@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: pages/Error404/index.jsx</title>
+    <title>JSDoc: Source: components/MacronutrientCard/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: pages/Error404/index.jsx</h1>
+    <h1 class="page-title">Source: components/MacronutrientCard/index.jsx</h1>
 
     
 
@@ -27,33 +27,34 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import { Link } from 'react-router-dom';
-import './error404.css';
 
-/** Creation of 404 error page with link to homepage
- *  *
- * @return {JSX.Element}
+import './macronutrientCard.css';
+
+/** MacronutrientCard creation with icons and its values
  * @component
- * @returns {JSX.Element} Error page
+ * @param {String} image - icons
+//  * @param {Integer} data - value number
+ * @param {String} unit - unit
+ * @param {String} text - macronutrient text
+ * @returns {JSX.Element} cards component
  */
 
-const Error404 = () => {
+const MacronutrientCard = ({ icon, data, unit, text }) => {
   return (
-    &lt;main>
-      &lt;section className='error__section'>
-        &lt;h1 className='error__title'>404&lt;/h1>
-        &lt;p className='error__content'>
-          Oups! La page que vous demandez n'existe pas.
-        &lt;/p>
-        &lt;Link to='/'>
-          &lt;p className='error__link'>Retourner sur la page d’accueil&lt;/p>
-        &lt;/Link>
-      &lt;/section>
-    &lt;/main>
+    &lt;div className='macronutrientCard'>
+      &lt;img src={icon} alt='' className='macronutrientCard__icons' />
+      &lt;div className='macronutrientCard__values'>
+        &lt;h3 className='macronutrientCard_units'>
+          {data}
+          {unit}
+        &lt;/h3>
+        &lt;p className='macronutrientCard__texts'>{text}&lt;/p>
+      &lt;/div>
+    &lt;/div>
   );
 };
 
-export default Error404;
+export default MacronutrientCard;
 </code></pre>
         </article>
     </section>

@@ -6,8 +6,8 @@ import './macronutrientCard.css';
  * @component
  * @param {String} image - icons
 //  * @param {Integer} data - value number
- * @param {String = 'g, kcal'} unit - unit
- * @param {String = "calories, proteins, lipids, carbohydrats"} text - macronutrient text
+ * @param {String} unit - unit
+ * @param {String} text - macronutrient text
  * @returns {JSX.Element} cards component
  */
 

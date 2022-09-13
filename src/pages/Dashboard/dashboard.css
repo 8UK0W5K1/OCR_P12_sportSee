@@ -29,6 +29,7 @@
 }
 
 .macronutrientCards {
+  margin-left: 200px; /* à modifier plus tard */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
