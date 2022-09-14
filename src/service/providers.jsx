@@ -2,12 +2,13 @@ import { getMainUserData } from './fetch.jsx';
 import { getActivitiesUserData } from './fetch.jsx';
 
 import MainDatasFormater from './dataModelisation/MainDataFormater.jsx';
+import ActivitiesDataFormater from './dataModelisation/ActivitiesDataFormater.jsx';
 
 export async function headerUserData(userId) {
   let mainDatas = {};
 
   mainDatas = await getMainUserData(userId);
-  console.log(mainDatas);
+  // console.log(mainDatas);
   // return mainDatas;  sans passage dans le MainDataFormater
 
   const userData = new MainDatasFormater(mainDatas);
@@ -19,10 +20,10 @@ export async function activitiesUserData(userId) {
   let activitiesDatas = {};
 
   activitiesDatas = await getActivitiesUserData(userId);
-  // console.log(activitiesDatas);
-  // return mainDatas;  sans passage dans le MainDataFormater
+  console.log(activitiesDatas);
+  // return activitiesDatas;  sans passage dans le MainDataFormater
 
-  return activitiesDatas;
-  // const userMainDatas = new MainDatasFormater(mainDatas);
-  // return userMainDatas;
+  const userActivitiesData = new ActivitiesDataFormater(activitiesDatas);
+  // console.log(userActivitiesData); // check the activitiesData Formater in console
+  return userActivitiesData;
 }
