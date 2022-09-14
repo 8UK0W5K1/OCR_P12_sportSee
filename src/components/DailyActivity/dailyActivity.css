@@ -17,3 +17,19 @@
 .graphTitle {
   font-size: 15px;
 }
+
+.customTooltip {
+  background-color: #e60000;
+  width: 39px;
+  height: 63px;
+  margin-left: 7px;
+}
+
+.tooltipData {
+  color: #fff;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 7px;
+  line-height: 24px;
+  text-align: center;
+}

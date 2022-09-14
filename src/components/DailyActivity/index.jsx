@@ -5,16 +5,29 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
   Legend,
-  LineChart,
-  Line,
+  Tooltip,
 } from 'recharts';
 
 import './dailyActivity.css';
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active) {
+    return (
+      <div className='customTooltip'>
+        <p className='tooltipData'>{`${payload[0].value} `}g</p>
+        <p className='tooltipData'>{`${payload[1].value} `}Kcal</p>
+      </div>
+    );
+  }
+};
+// https://recharts.org/en-US/examples/CustomContentOfTooltip
+//         <Tooltip content={CustomTooltip} />
+//
+
 const DailyActivity = ({ activityValues }) => {
   // console.log(activityValues);
+
   return (
     <div className='activityGraph'>
       <BarChart
@@ -49,7 +62,7 @@ const DailyActivity = ({ activityValues }) => {
           tickMargin={45}
           minTickGap={27}
         />
-        {/* <Tooltip content={<CustomTooltip />} /> */}
+        <Tooltip content={CustomTooltip} />
         <Legend // change styles in formatter for the Bar component text
           verticalAlign='top'
           align='right'
