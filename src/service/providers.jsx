@@ -4,6 +4,11 @@ import { getActivitiesUserData } from './fetch.jsx';
 import MainDatasFormater from './dataModelisation/MainDataFormater.jsx';
 import ActivitiesDataFormater from './dataModelisation/ActivitiesDataFormater.jsx';
 
+/**
+ * @param userId - the id of the user
+ * @returns An array of objects with user mainDatas
+ */
+
 export async function headerUserData(userId) {
   let mainDatas = {};
 
@@ -15,6 +20,11 @@ export async function headerUserData(userId) {
   console.log(userData.keyData.calorieCount);
   return userData;
 }
+
+/**
+ * @param userId - the id of the user
+ * @returns An array of objects with user activities datas
+ */
 
 export async function activitiesUserData(userId) {
   let activitiesDatas = {};
