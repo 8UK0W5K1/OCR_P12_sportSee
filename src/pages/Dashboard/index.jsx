@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import DashboardNavigation from '../../components/DashboardNavigation';
 import MacronutrientCard from '../../components/MacronutrientCard';
+import DailyActivity from '../../components/DailyActivity';
 
 import { headerUserData } from '../../service/providers';
 import { activitiesUserData } from '../../service/providers';
@@ -30,8 +31,8 @@ const Dashboard = () => {
     (async () => {
       try {
         const userDatas = await headerUserData(userId);
-        const activitiesUserDatas = await activitiesUserData(userId);
-        setDatas({ userDatas, activitiesUserDatas });
+        const userActivitiesDatas = await activitiesUserData(userId);
+        setDatas({ userDatas, userActivitiesDatas });
         setIsLoading(false);
       } catch (error) {
         console.log("sorry, there's an error :", error);
@@ -59,6 +60,11 @@ const Dashboard = () => {
               <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             </div>
             <div className='dashboardContent'>
+              <div>
+                <DailyActivity
+                  activityValues={datas.userActivitiesDatas.sessions}
+                />
+              </div>
               <div className='macronutrientCards'>
                 <MacronutrientCard
                   icon={caloriesIcon}
