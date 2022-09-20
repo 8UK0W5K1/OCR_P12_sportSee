@@ -25,7 +25,7 @@ const ScoreChart = ({ score }) => {
   ];
 
   return (
-    <div className='squareGraph'>
+    <div className='scoreChart'>
       <ResponsiveContainer width='100%' aspect={1}>
         <RadialBarChart
           cx='50%'
