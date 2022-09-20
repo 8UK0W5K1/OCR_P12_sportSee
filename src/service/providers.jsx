@@ -1,10 +1,12 @@
 import { getMainUserData } from './fetch.jsx';
 import { getActivitiesUserData } from './fetch.jsx';
 import { GetUserAverageSessions } from './fetch.jsx';
+import { GetUserPerformances } from './fetch.jsx';
 
 import MainDatasFormater from './dataModelisation/MainDataFormater.jsx';
 import ActivitiesDataFormater from './dataModelisation/ActivitiesDataFormater.jsx';
 import SessionsDataFormater from './dataModelisation/SessionsDataFormater';
+import PerformancesDataFormater from './dataModelisation/PerformancesDataFormater';
 
 /**
  * @param userId - the id of the user
@@ -55,4 +57,21 @@ export async function userSessionsTimeData(userId) {
   const userAverageSessionsTimeData = new SessionsDataFormater(sessionsData);
   // console.log(userActivitiesData); // check the activitiesData Formater in console
   return userAverageSessionsTimeData;
+}
+
+/**
+ * @param userId - the id of the user
+ * @returns An array of objects with user performances datas
+ */
+
+export async function userPerformancesData(userId) {
+  let performancesData = {};
+
+  performancesData = await GetUserPerformances(userId);
+  console.log(performancesData);
+  // return performancesData;  sans passage dans le PerformancesDataFormater
+
+  const userPerformancesData = new PerformancesDataFormater(performancesData);
+  console.log(userPerformancesData); // check the PerformancesDataFormater in console
+  return userPerformancesData;
 }

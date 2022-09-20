@@ -4,10 +4,12 @@ import { useParams } from 'react-router-dom';
 import DashboardNavigation from '../../components/DashboardNavigation';
 import MacronutrientCard from '../../components/MacronutrientCard';
 import DailyActivity from '../../components/DailyActivity';
+import Performances from '../../components/Performances';
 
 import { headerUserData } from '../../service/providers';
 import { activitiesUserData } from '../../service/providers';
 import { userSessionsTimeData } from '../../service/providers';
+import { userPerformancesData } from '../../service/providers';
 
 import caloriesIcon from '../../assets/icons/caloriesIcon.png';
 import carbsIcon from '../../assets/icons/carbsIcon.png';
@@ -35,7 +37,13 @@ const Dashboard = () => {
         const userDatas = await headerUserData(userId);
         const userActivitiesDatas = await activitiesUserData(userId);
         const userSessionsDatas = await userSessionsTimeData(userId);
-        setDatas({ userDatas, userActivitiesDatas, userSessionsDatas });
+        const userPerformanceData = await userPerformancesData(userId);
+        setDatas({
+          userDatas,
+          userActivitiesDatas,
+          userSessionsDatas,
+          userPerformanceData,
+        });
         setIsLoading(false);
       } catch (error) {
         console.log("sorry, there's an error :", error);
@@ -72,7 +80,7 @@ const Dashboard = () => {
                     sessions={datas.userSessionsDatas.sessionsData}
                   />
                   <Performances
-                    performance={datas.userPerformance.performData}
+                    performance={datas.userPerformanceData.performData}
                   />
                 </div>
               </div>

@@ -69,3 +69,23 @@ export const GetUserAverageSessions = async (userId) => {
     console.log("sorry there's an error :", error);
   }
 };
+/**
+ * It fetches data from a url and returns the average session datas.
+ * @param {Number} userId - The id of the user
+ * @returns {Promise}
+ */
+export const GetUserPerformances = async (userId) => {
+  let url = `http://localhost:3000/user/${userId}/performance`;
+
+  try {
+    if (mockedDatas) {
+      url = `/usersDatas/${userId}/performance.json`;
+    }
+    const response = await fetch(url);
+    const performancesData = await response.json();
+    console.log(performancesData.data);
+    return performancesData.data;
+  } catch (error) {
+    console.log("sorry there's an error :", error);
+  }
+};
