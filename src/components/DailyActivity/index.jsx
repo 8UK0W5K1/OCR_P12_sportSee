@@ -8,6 +8,7 @@ import {
   Legend,
   Tooltip,
 } from 'recharts';
+import PropTypes from 'prop-types';
 
 import './dailyActivity.css';
 
@@ -110,3 +111,7 @@ const DailyActivity = ({ activityValues }) => {
 };
 
 export default DailyActivity;
+//Proptypes
+DailyActivity.propTypes = {
+  activityValues: PropTypes.array.isRequired,
+};

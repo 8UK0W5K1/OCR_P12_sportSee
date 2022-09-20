@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './macronutrientCard.css';
 
@@ -27,3 +28,11 @@ const MacronutrientCard = ({ icon, data, unit, text }) => {
 };
 
 export default MacronutrientCard;
+
+//Proptypes
+MacronutrientCard.propTypes = {
+  icon: PropTypes.string.isRequired,
+  data: PropTypes.number.isRequired,
+  unit: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
