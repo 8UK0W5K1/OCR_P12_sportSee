@@ -12,7 +12,7 @@ import {
 import './dailyActivity.css';
 
 const CustomTooltip = ({ active, payload }) => {
-  if (active) {
+  if (active && payload && payload.length) {
     return (
       <div className='customTooltip'>
         <p className='tooltipData'>{`${payload[0].value} `}g</p>

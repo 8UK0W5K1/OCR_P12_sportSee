@@ -4,7 +4,7 @@
  * @returns {Promise}
  */
 
-const mockedDatas = false;
+const mockedDatas = true;
 
 export const getMainUserData = async (userId) => {
   let url = `http://localhost:3000/user/${userId}`;
