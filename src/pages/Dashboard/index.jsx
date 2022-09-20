@@ -82,6 +82,7 @@ const Dashboard = () => {
                   <Performances
                     performance={datas.userPerformanceData.performData}
                   />
+                  <ScoreChart score={datas.userDatas.score[0].value} />
                 </div>
               </div>
               <div className='macronutrientCards'>
