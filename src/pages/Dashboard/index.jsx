@@ -7,6 +7,7 @@ import DailyActivity from '../../components/DailyActivity';
 
 import { headerUserData } from '../../service/providers';
 import { activitiesUserData } from '../../service/providers';
+import { userSessionsTimeData } from '../../service/providers';
 
 import caloriesIcon from '../../assets/icons/caloriesIcon.png';
 import carbsIcon from '../../assets/icons/carbsIcon.png';
@@ -14,6 +15,7 @@ import fatIcon from '../../assets/icons/fatIcon.png';
 import proteinIcon from '../../assets/icons/proteinIcon.png';
 
 import './dashboard.css';
+import AverageSessionTime from '../../components/AverageSessionTime';
 
 /**
  * Creation of the Dashboard page with charts & user datas
@@ -32,7 +34,8 @@ const Dashboard = () => {
       try {
         const userDatas = await headerUserData(userId);
         const userActivitiesDatas = await activitiesUserData(userId);
-        setDatas({ userDatas, userActivitiesDatas });
+        const userSessionsDatas = await userSessionsTimeData(userId);
+        setDatas({ userDatas, userActivitiesDatas, userSessionsDatas });
         setIsLoading(false);
       } catch (error) {
         console.log("sorry, there's an error :", error);
@@ -64,6 +67,14 @@ const Dashboard = () => {
                 <DailyActivity
                   activityValues={datas.userActivitiesDatas.sessions}
                 />
+                <div className='charts'>
+                  <AverageSessionTime
+                    sessions={datas.userSessionsDatas.sessionsData}
+                  />
+                  <Performances
+                    performance={datas.userPerformance.performData}
+                  />
+                </div>
               </div>
               <div className='macronutrientCards'>
                 <MacronutrientCard
