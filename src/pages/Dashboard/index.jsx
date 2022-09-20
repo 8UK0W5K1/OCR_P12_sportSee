@@ -5,6 +5,7 @@ import DashboardNavigation from '../../components/DashboardNavigation';
 import MacronutrientCard from '../../components/MacronutrientCard';
 import DailyActivity from '../../components/DailyActivity';
 import Performances from '../../components/Performances';
+import ScoreChart from '../../components/ScoreChart';
 
 import { headerUserData } from '../../service/providers';
 import { activitiesUserData } from '../../service/providers';
