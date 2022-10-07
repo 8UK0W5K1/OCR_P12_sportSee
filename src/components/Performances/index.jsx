@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './performances.css';
 import {
   Radar,
   RadarChart,

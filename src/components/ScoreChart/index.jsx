@@ -7,8 +7,6 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 
-import './scoreChart.css';
-
 /**
  * Display user's score chart
  * @component
