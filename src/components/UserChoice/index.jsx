@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './userChoice.css';
 
@@ -21,3 +22,10 @@ const UserChoice = ({ id, avatar, name }) => {
 };
 
 export default UserChoice;
+
+//Proptypes
+UserChoice.propTypes = {
+  id: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};

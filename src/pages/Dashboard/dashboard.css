@@ -36,3 +36,23 @@
   width: 30%;
   gap: 39px;
 }
+
+.charts {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.sessionChart,
+.performancesChart,
+.scoreChart {
+  width: 33%;
+}
+
+.sessionChart > div > .recharts-wrapper,
+.performancesChart > div > .recharts-wrapper,
+.scoreChart > div > .recharts-wrapper {
+  width: 100% !important;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+}

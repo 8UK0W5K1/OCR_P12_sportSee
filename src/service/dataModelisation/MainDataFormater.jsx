@@ -14,6 +14,10 @@ export default class MainDatasFormater {
     this.userFirstname = data.userInfos.firstName;
     this.keyData = data.keyData;
     this.todayScore = data.todayScore || data.score;
-    this.score = this.todayScore * 100;
+    this.score = this.formatScore(this.todayScore);
+  }
+
+  formatScore() {
+    return [{ value: this.todayScore * 100 }];
   }
 }
