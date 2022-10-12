@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Navbar/index.jsx</title>
+    <title>JSDoc: Source: components/Performances/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Navbar/index.jsx</h1>
+    <h1 class="page-title">Source: components/Performances/index.jsx</h1>
 
     
 
@@ -27,45 +27,56 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import { NavLink } from 'react-router-dom';
-import logo from '../../assets/sportSeeLogo.png';
-import './navbar.css';
+
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  ResponsiveContainer,
+} from 'recharts';
+import PropTypes from 'prop-types';
 
 /**
- * Website's navbar with its navigation links
+ * Display user's performances chart
  * @component
- * @returns {JSX.Element} Navbar component
+ * @param {Array} performance - array of performances datas
+ * @returns {JSX.Element} PerformanceGraph component
  */
-
-const Navbar = () => {
+const Performances = ({ performance }) => {
+  //console.log(performance)
   return (
-    &lt;section className='header'>
-      &lt;NavLink to='/'>
-        &lt;div className='compagnyLogo'>
-          &lt;img src={logo} alt='logo SportSee' />
-        &lt;/div>
-      &lt;/NavLink>
-      &lt;div className='navbar'>
-        &lt;ul>
-          &lt;NavLink to='/' className='navbar__li'>
-            &lt;li>Accueil&lt;/li>
-          &lt;/NavLink>
-          &lt;NavLink to='' className='navbar__li'>
-            &lt;li>Profil&lt;/li>
-          &lt;/NavLink>
-          &lt;NavLink to='' className='navbar__li'>
-            &lt;li>Réglage&lt;/li>
-          &lt;/NavLink>
-          &lt;NavLink to='' className='navbar__li'>
-            &lt;li>Communauté&lt;/li>
-          &lt;/NavLink>
-        &lt;/ul>
-      &lt;/div>
-    &lt;/section>
+    &lt;div className='performancesChart'>
+      &lt;ResponsiveContainer width='100%' aspect={1}>
+        &lt;RadarChart
+          margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
+          style={{ backgroundColor: '#282D30' }}
+          data={performance}
+        >
+          &lt;PolarGrid radialLines={false} />
+          &lt;PolarAngleAxis
+            dataKey='kind'
+            tickLine={false}
+            axisLine={false}
+            dy={5}
+            stroke='#FFF'
+            tick={{ fill: '#FFFFFF', fontSize: 12 }}
+          />
+          &lt;PolarRadiusAxis tick={false} tickCount={6} axisLine={false} />
+          &lt;Radar dataKey='value' fill='#FF0101' fillOpacity={0.6} />
+        &lt;/RadarChart>
+      &lt;/ResponsiveContainer>
+    &lt;/div>
   );
 };
 
-export default Navbar;
+export default Performances;
+
+//Proptypes
+Performances.propTypes = {
+  performance: PropTypes.array.isRequired,
+};
 </code></pre>
         </article>
     </section>

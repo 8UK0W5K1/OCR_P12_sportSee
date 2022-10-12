@@ -31,8 +31,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import DashboardNavigation from '../../components/DashboardNavigation';
 import MacronutrientCard from '../../components/MacronutrientCard';
+import DailyActivity from '../../components/DailyActivity';
+import Performances from '../../components/Performances';
+import ScoreChart from '../../components/ScoreChart';
 
 import { headerUserData } from '../../service/providers';
+import { activitiesUserData } from '../../service/providers';
+import { userSessionsTimeData } from '../../service/providers';
+import { userPerformancesData } from '../../service/providers';
 
 import caloriesIcon from '../../assets/icons/caloriesIcon.png';
 import carbsIcon from '../../assets/icons/carbsIcon.png';
@@ -40,6 +46,7 @@ import fatIcon from '../../assets/icons/fatIcon.png';
 import proteinIcon from '../../assets/icons/proteinIcon.png';
 
 import './dashboard.css';
+import AverageSessionTime from '../../components/AverageSessionTime';
 
 /**
  * Creation of the Dashboard page with charts &amp; user datas
@@ -57,7 +64,15 @@ const Dashboard = () => {
     (async () => {
       try {
         const userDatas = await headerUserData(userId);
-        setDatas({ userDatas });
+        const userActivitiesDatas = await activitiesUserData(userId);
+        const userSessionsDatas = await userSessionsTimeData(userId);
+        const userPerformanceData = await userPerformancesData(userId);
+        setDatas({
+          userDatas,
+          userActivitiesDatas,
+          userSessionsDatas,
+          userPerformanceData,
+        });
         setIsLoading(false);
       } catch (error) {
         console.log("sorry, there's an error :", error);
@@ -73,44 +88,61 @@ const Dashboard = () => {
         {isLoading ? (
           'Loading...'
         ) : (
-          &lt;div className='dashboardHeader'>
-            &lt;h1>
-              Bonjour{' '}
-              &lt;span className='dashboardHeader__username'>
-                {' '}
-                {datas.userDatas.userFirstname}
-              &lt;/span>
-            &lt;/h1>
-            &lt;p>Félicitation ! Vous avez explosé vos objectifs hier 👏&lt;/p>
-          &lt;/div>
+          &lt;>
+            &lt;div className='dashboardHeader'>
+              &lt;h1>
+                Bonjour{' '}
+                &lt;span className='dashboardHeader__username'>
+                  {' '}
+                  {datas.userDatas.userFirstname}
+                &lt;/span>
+              &lt;/h1>
+              &lt;p>Félicitation ! Vous avez explosé vos objectifs hier 👏&lt;/p>
+            &lt;/div>
+            &lt;div className='dashboardContent'>
+              &lt;div>
+                &lt;DailyActivity
+                  activityValues={datas.userActivitiesDatas.sessions}
+                />
+                &lt;div className='charts'>
+                  &lt;AverageSessionTime
+                    sessions={datas.userSessionsDatas.sessionsData}
+                  />
+                  &lt;Performances
+                    performance={datas.userPerformanceData.performData}
+                  />
+                  &lt;ScoreChart score={datas.userDatas.score[0].value} />
+                &lt;/div>
+              &lt;/div>
+              &lt;div className='macronutrientCards'>
+                &lt;MacronutrientCard
+                  icon={caloriesIcon}
+                  data={datas.userDatas.keyData.calorieCount}
+                  unit='Kcal'
+                  text='Calories'
+                />
+                &lt;MacronutrientCard
+                  icon={proteinIcon}
+                  data={datas.userDatas.keyData.proteinCount}
+                  unit='g'
+                  text='Protéines'
+                />
+                &lt;MacronutrientCard
+                  icon={carbsIcon}
+                  data={datas.userDatas.keyData.lipidCount}
+                  unit='g'
+                  text='Glucides'
+                />
+                &lt;MacronutrientCard
+                  icon={fatIcon}
+                  data={datas.userDatas.keyData.carbohydrateCount}
+                  unit='g'
+                  text='Lipides'
+                />
+              &lt;/div>
+            &lt;/div>
+          &lt;/>
         )}
-      &lt;/div>
-      &lt;div className='dashboardContent'>&lt;/div>
-      &lt;div className='macronutrientCards'>
-        &lt;MacronutrientCard
-          icon={caloriesIcon}
-          // data={}
-          unit='Kcal'
-          text='Calories'
-        />
-        &lt;MacronutrientCard
-          icon={proteinIcon}
-          // data={}
-          unit='g'
-          text='Protéines'
-        />
-        &lt;MacronutrientCard
-          icon={carbsIcon}
-          // data={}
-          unit='g'
-          text='Glucides'
-        />
-        &lt;MacronutrientCard
-          icon={fatIcon}
-          // data={}
-          unit='g'
-          text='Lipides'
-        />
       &lt;/div>
     &lt;/>
   );
@@ -127,13 +159,13 @@ export default Dashboard;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Error404.html">Error404</a></li><li><a href="MacronutrientCard.html">MacronutrientCard</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="UserChoice.html">UserChoice</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#DashboardNavigation">DashboardNavigation</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AverageSessionTime.html">AverageSessionTime</a></li><li><a href="Error404.html">Error404</a></li><li><a href="MacronutrientCard.html">MacronutrientCard</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Performances.html">Performances</a></li><li><a href="ScoreChart.html">ScoreChart</a></li><li><a href="UserChoice.html">UserChoice</a></li></ul><h3>Global</h3><ul><li><a href="global.html#activitiesUserData">activitiesUserData</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#DashboardNavigation">DashboardNavigation</a></li><li><a href="global.html#headerUserData">headerUserData</a></li><li><a href="global.html#userPerformancesData">userPerformancesData</a></li><li><a href="global.html#userSessionsTimeData">userSessionsTimeData</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Tue Sep 13 2022 11:48:42 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Oct 12 2022 20:17:33 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
